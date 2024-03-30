@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# else
+**/*.local.vue
+
+# vite 编译时动态生成的 unplugin-auto-import 文件，因其频繁变更，且自动生成，忽略其依赖
+.eslintrc-auto-import.json
+auto-imports.d.ts
+components.d.ts
+reference-new.d.ts
+todo.md

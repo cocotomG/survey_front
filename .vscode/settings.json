@@ -1,0 +1,112 @@
+// vscode 实现的效率功能
+// 保存自动格式化代码
+// 保存自动修复 eslint 错误
+{
+  // 代码保存时，自动格式化
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  // Format On Type/对键入的信息格式化(键入一行后，就是输入“;”分号结束一行)
+  "editor.formatOnType": true,
+  // 文件保存时自动格式化粘贴的内容
+  "editor.formatOnSave": true,
+  // 自动格式化粘贴的内容
+  "editor.formatOnPaste": true,
+  // 使用 eslint 作为文档格式化工具
+  "eslint.format.enable": true,
+  // 文件什么时候触发保存，失去焦点时保存
+  "files.autoSave": "onFocusChange",
+  // eslint 应用到那些文件上
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue",
+    "typescript",
+    "typescriptreact"
+  ],
+  // 去到 autoimport 插件中，自动添加分号的功能
+  "autoimport.useSemiColon": false,
+  // js 格式化去除分号
+  "javascript.format.semicolons": "remove",
+  // 键入时，快速产生提示，解决编写 tailwind class 时，提示不及时问题
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  // 为 todo-tree 插件添加识别的标签
+  "todo-tree.general.tags": [
+    "BUG",
+    "bug",
+    "HACK",
+    "hack",
+    "FIXME", // 待修复的bug
+    "fixme",
+    "fix",
+    "FEAT", // 待开发内容
+    "feat",
+    "TODO", // 待完善
+    "todo",
+    "???", // 看不懂的内容
+  ],
+  // stylelint配置，stylelint 默认识别 css 文件，sass，less 等文件的识别，通过 stylelint-scss 插件完成
+  "stylelint.enable": true, // 【stylelint】启动 stylelint 插件
+  "css.validate": false, // 【default】去除 vscode 默认 css 校验器，均交由 stylelint 处理
+  "less.validate": false, // 【default】去除 vscode 默认 less 校验器，均交由 stylelint 处理
+  "scss.validate": false, // 【default】去除 vscode 默认 scss 校验器，均交由 stylelint 处理
+  // styelint 识别那些，那些文件会经过 stylelint 处理
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "vue",
+    "html",
+    "scss",
+    "sass"
+  ],
+  // stylelint 提供的快捷代码段，快捷生成stylelint 注释代码，如 `/* stylelint-disable-line rule */`
+  "stylelint.snippet": [
+    "css",
+    "less",
+    "postcss",
+    "vue",
+    "html",
+    "scss",
+    "sass"
+  ],
+  // 定义路径插件的映射关系
+  "path-intellisense.mappings": {
+    "@/": "${workspaceRoot}/src/",
+    "@images": "${workspaceRoot}/src/assets/images",
+  },
+  // 拼写校验器，忽略特定单词
+  "cSpell.ignoreWords": [
+    "unref",
+    "WxSPay",
+    "Alipay",
+    "eslint",
+    "stylelint",
+    "deleteable",
+  ],
+  // 拼写校验器，忽略特定文件检查
+  "cSpell.ignorePaths": [
+    "package.json",
+    "package-lock.json",
+    "node_modules",
+    "vscode-extension",
+    ".git/objects",
+    ".vscode",
+    ".vscode-insiders",
+  ],
+  // 配置保存时自动执行的命令，解决 stylelint 插件失效问题
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": ".(vue|scss|css|less)",
+        "cmd": "npx stylelint ${file} --fix"
+      },
+    ]
+  },
+  "flashOpen.filePath": "C:\\Users\\Adminstartor\\Desktop\\BaiduSyncdisk\\temp.md",
+  "Notes.notesLocation": "C:\\Users\\Adminstartor\\Desktop\\BaiduSyncdisk",
+  "editor.tabSize": 2,
+}

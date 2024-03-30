@@ -1,0 +1,108 @@
+// ant-design 全局样式修改
+
+@primary-color: #448EF6; // 全局主色
+@select-nav-color: #EDEDF7; //导航菜单选中颜色
+@default-nav-color: #00204A; //导航菜单未选中颜色
+@menu-active-bg-color: #7E7B7B0B; //菜单hover颜色
+@menu-text-content-color: #181818; //菜单字体颜色
+@layout-sider-background: @default-nav-color; // 侧边栏背景色
+@menu-dark-inline-submenu-bg: @menu-active-bg-color; //子菜单背景色
+@menu-dark-bg: @default-nav-color; //菜单背景色
+@layout-trigger-background: #667992; //侧边栏切换背景色
+// Layout
+@layout-header-height: 57px;
+
+.ant-input-number {
+  width: 100%;
+}
+
+.ant-picker {
+  width: 100%;
+}
+
+.ant-input-number-group-wrapper {
+  width: 100%;
+}
+
+.ant-table-wrapper {
+  background-color: #FFFFFF;
+}
+
+.ant-table-thead {
+  font-size: 15px;
+}
+
+// .ant-menu {
+//   // padding-top: 12px;
+//   // padding-left: 6%;
+//   background-color: @default-nav-color !important;
+// }
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  // background-image: linear-gradient(45deg, rgb(3 114 232), rgb(96 195 251));
+  margin-left: 6%;
+  border-radius: 5px;
+  width: 88%;
+  background-color: #667992;
+}
+
+// .ant-menu-submenu-selected {
+//   color: rgb(2 107 215) !important;
+// }
+
+.ant-menu-sub .ant-menu-item-selected {
+  padding-left: 36px !important;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: rgb(255 255 255 / 0%);
+}
+
+// 帮助中心
+.ant-drawer-body {
+  padding: 0 !important;
+
+  .ant-menu-item {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    margin-left: 4%;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    width: 92% !important;
+    font-size: inherit;
+    font-family: inherit;
+    // color: @default-nav-color;
+    background-color: @default-nav-color;
+    outline: none;
+    transition: color 0.1s ease-in-out;
+  }
+
+  .ant-menu-item::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    border-radius: 50%;
+    height: 1em;
+    width: 1em;
+    background-color: @select-nav-color;
+    transition: transform 0.45s ease-in-out;
+    content: "";
+    transform-origin: center;
+    transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+  }
+
+  .ant-menu-item-selected::before {
+    transform: translate3d(-50%, -50%, 0) scale3d(15, 15, 15);
+  }
+
+  .ant-menu-item::after {
+    border-right: white solid 1px !important;
+  }
+
+  .ant-menu-item:hover {
+    background-color: #7E7B7B0B !important;
+  }
+}

@@ -1,0 +1,18 @@
+import { nextTick, unref, Ref } from 'vue'
+import type { Options } from 'sortablejs'
+
+export function initSortable(el: HTMLElement | Ref<HTMLElement>, options?: Options) {
+  nextTick(async () => {
+    if (!el) {
+      return
+    }
+
+    const Sortable = (await import('sortablejs')).default
+    Sortable.create(unref(el), {
+      animation: 500,
+      delay: 400,
+      delayOnTouchOnly: true,
+      ...options,
+    })
+  })
+}
