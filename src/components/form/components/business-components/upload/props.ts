@@ -1,5 +1,5 @@
-import { PropType, ExtractPropTypes } from 'vue'
-import type { UploadProps as AUploadProps } from 'ant-design-vue/es/upload'
+import { PropType, ExtractPropTypes } from "vue";
+import type { UploadProps as AUploadProps } from "ant-design-vue/es/upload";
 
 export const uploadProps = {
   // 文件最大大小
@@ -14,7 +14,7 @@ export const uploadProps = {
   },
 
   value: {
-    type: Array as PropType<string[]>,
+    type: [String, Array] as PropType<string | string[]>,
     default: () => [],
   },
 
@@ -24,8 +24,8 @@ export const uploadProps = {
   },
 
   acceptType: {
-    type: String as PropType<'img' | 'file' | 'zip' | 'doc'>,
-    default: 'file',
+    type: String as PropType<"img" | "file" | "zip" | "doc">,
+    default: "file",
   },
 
   buttonType: {
@@ -34,13 +34,14 @@ export const uploadProps = {
 
   ghost: {
     type: Boolean,
-    default: false
+    default: false,
   },
 
   // 上传组件提示信息
   remindInfo: {
-    type: String
-  }
-}
+    type: String,
+  },
+};
 
-export type UploadProps = Partial<ExtractPropTypes<typeof uploadProps>> & AUploadProps
+export type UploadProps = Partial<ExtractPropTypes<typeof uploadProps>> &
+  AUploadProps;

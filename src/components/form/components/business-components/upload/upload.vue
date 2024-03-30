@@ -55,22 +55,27 @@ const filePaths = ref<string[]>([]);
 // upload 组件值，设置该值，使得 upload 组件为受控组件。上传的状态及图片的显示，由 files 控制
 const files = ref<UploadProps["fileList"]>([]);
 onMounted(() => {
-  props.value.forEach((fileUrl) => {
-    const fileName = getFileName(fileUrl);
+  /** string、array区分判断 */
+  if (Array.isArray(props.value)) {
+    props.value.forEach((fileUrl) => {
+      const fileName = getFileName(fileUrl);
+      files.value?.push({
+        uid: fileName,
+        name: fileName,
+        status: "done",
+        url: fileUrl,
+      });
+    });
+  } else {
+    const fileName = getFileName(props.value);
     files.value?.push({
       uid: fileName,
       name: fileName,
       status: "done",
-      url: fileUrl,
+      url: props.value,
     });
-  });
-  console.log(
-    slots,
-    props.maxNum,
-    filePaths.value,
-    files.value?.length,
-    "slot"
-  );
+  }
+  console.log(slots, props.maxNum, filePaths.value, files.value?.length);
 });
 
 // 允许上传的文件类型

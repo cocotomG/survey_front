@@ -43,6 +43,11 @@ const bindGridTableAttr = ref<IGridTable.Props>({
       dataIndex: "nickName",
     },
     {
+      title: "头像",
+      dataIndex: "avatar",
+      thumbAble: true,
+    },
+    {
       title: "电话",
       dataIndex: "mobile",
     },
