@@ -27,9 +27,6 @@ import Upload, { UploadProps } from './business-components/upload'
 import InputCaptcha, { InputCaptchaProps } from './business-components/input-captcha'
 import ReferenceSelect, { ReferenceSelectProps } from './business-components/reference-select'
 import CommonApiSelect, { CommonApiSelectProps } from './business-components/common-api-select'
-import AdminUserApiSelect, { AdminUserApiSelectProps } from './business-components/admin-user-api-select'
-import CompanyApiSelect, { CompanyApiSelectProps } from './business-components/company-api-select'
-import ActivityApiSelect, { ActivityApiSelectProps } from './business-components/activity-api-select'
 import TreeApiSelect, { TreeApiSelectProps } from './business-components/tree-api-select'
 import ExcelImport, { ExcelImportProps } from './business-components/excel-import'
 import WangEditor, { WangEditorProps } from './business-components/wang-editor'
@@ -66,9 +63,6 @@ export const componentTypeMap = {
   InputCaptcha,
   ReferenceSelect,
   CommonApiSelect,
-  AdminUserApiSelect,
-  CompanyApiSelect,
-  ActivityApiSelect,
   TreeApiSelect,
   // SocialTableForm,
   ExcelImport,
@@ -97,7 +91,7 @@ export type ComponentProp<T extends ComponentType> = {
   'Cascader': CascaderProps,
   'Checkbox': CheckboxProps,
   'TreeSelect': TreeSelectProps,
-  'Tree':TreeProps,
+  'Tree': TreeProps,
 
   // 自定义通用组件
   'CustomApiSelect': CustomApiSelectProps,
@@ -118,6 +112,6 @@ export type ComponentProp<T extends ComponentType> = {
   'ActivityApiSelect': ActivityApiSelectProps,
   'TreeApiSelect': TreeApiSelectProps,
   'ExcelImport': ExcelImportProps,
-  'WangEditor':WangEditorProps
+  'WangEditor': WangEditorProps
   [K: string]: any,
 }[T]

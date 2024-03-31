@@ -1,27 +1,16 @@
 <template>
-  <a-select
-    v-bind="bindAttrs"
-    @dropdownVisibleChange="handleFetch"
-  >
-    <template
-      v-if="loading"
-      #suffixIcon
-    >
+  <a-select v-bind="bindAttrs" @dropdownVisibleChange="handleFetch">
+    <template v-if="loading" #suffixIcon>
       <loading-outlined spin />
     </template>
-    <template
-      v-if="loading"
-      #notFoundContent
-    >
+    <template v-if="loading" #notFoundContent>
       <span>
-        <loading-outlined
-          spin
-          class="mr-1"
-        />
+        <loading-outlined spin class="mr-1" />
         暂无数据
       </span>
     </template>
   </a-select>
+  {{ options }}{{ value }}
 </template>
 <script lang="ts" setup>
 import { computed, unref, useAttrs } from 'vue'
@@ -32,9 +21,9 @@ import { parseDotStrObjToObj, transformObjToDotStrObj } from '@/utils/object'
 
 const props = defineProps(customApiSelectProps)
 type EmitEvents = {
-  (e:'change', ...value):void
-  (e:'update:value', ...value):void
-  (e:'options-change', options:Recordable[]):void
+  (e: 'change', ...value): void
+  (e: 'update:value', ...value): void
+  (e: 'options-change', options: Recordable[]): void
 }
 const emits = defineEmits<EmitEvents>()
 const attrs = useAttrs()

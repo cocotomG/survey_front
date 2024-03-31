@@ -1,16 +1,8 @@
 <template>
-  <a-upload
-    v-bind="bindAttrs"
-    :before-upload="handleBeforeUpload"
-    @change="handleChange"
-    @preview="handlePreview"
-  >
+  <a-upload v-bind="bindAttrs" :before-upload="handleBeforeUpload" @change="handleChange" @preview="handlePreview">
     <slot>
-      <div
-        v-if="
-          !slots.default && filePaths.length < maxNum && files?.length < maxNum
-        "
-      >
+      <div v-if="!slots.default && filePaths?.length < maxNum && files?.length < maxNum
+    ">
         <template v-if="props.acceptType === 'img'">
           <upload-outlined />
           <div class="ant-upload-text">上传</div>
@@ -75,7 +67,6 @@ onMounted(() => {
       url: props.value,
     });
   }
-  console.log(slots, props.maxNum, filePaths.value, files.value?.length);
 });
 
 // 允许上传的文件类型
@@ -128,7 +119,7 @@ async function handleBeforeUpload(file: File) {
     return false;
   }
 
-  console.log(maxNum, filePaths.value);
+  // console.log(maxNum, filePaths.value);
   if (maxNum && maxNum <= filePaths.value.length) {
     useMessage.error(`最多上传${maxNum}个文件`);
     return false;
@@ -183,9 +174,9 @@ function handleChange({
       }
     });
   if (props.maxNum == 1) {
-    filePaths.value = filePaths.value[0];
+    filePaths.value = filePaths.value[0] ?? [];
   }
-  emits("update:value", filePaths.value);
+  emits("update:value", filePaths.value ?? []);
 }
 
 // 预览功能，解决 ant-design 默认新开页面，打开 base64 数据造成的 chrome 安全警告问题，Not allowed to navigate top frame to data URL:

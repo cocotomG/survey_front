@@ -106,7 +106,6 @@ const captchaImg = ref("")
 
 onMounted(() => {
   getCaptcha()
-  console.log(captchaImg.value)
 })
 
 
@@ -191,12 +190,10 @@ async function handleLogin() {
 
   loading.value = true
   try {
-    console.log(1, "=============")
     await formRef.value?.validate()
     const loginDataValue = cloneDeep(omit(toRaw(loginDate), ['agree']))
 
     // loginDataValue.password = md5(loginDataValue.password).toString()
-    console.log(loginDataValue)
     const { token } = await authApi.loginByAccount(loginDataValue)
     await getCaptcha()
     await userStore.loginSuccess(token)

@@ -20,15 +20,14 @@ const adminApi = {
 const roleApi = {
 
   /* 获取角色列表 */
-  getRoleList: params => request.get('role/list', params),
+  getRoleList: params => request.get('role/index', params),
 
   /*  添加角色 */
   addRole: params => request.post('role', params),
 
   /* 修改角色 */
 
-  updateRole: (id, params) => {
-    params.id = id
+  updateRole: (params) => {
     return request.put('role', params)
   },
 
